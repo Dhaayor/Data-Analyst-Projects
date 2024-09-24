@@ -33,48 +33,10 @@ The project uses the following datasets:
 2. **SQL Queries and Analysis**:
    - Wrote complex SQL queries to analyze budget variance, project performance, and employee allocation.
    - Used Common Table Expressions (CTEs) and advanced SQL functions to create derived columns for further analysis.
-''''sample sql query
----PROJECT STATUS
+![Screenshot 2024-09-23 231729](https://github.com/user-attachments/assets/d8b11bf3-fb9c-4306-a655-3ab5aaf7909a)
+![Screenshot 2024-09-23 231823](https://github.com/user-attachments/assets/45139dd3-2e90-4311-acad-acca01df030d)
+![Screenshot 2024-09-23 231845](https://github.com/user-attachments/assets/f2209e47-048b-4f89-ac9d-da97d50e65bd)
 
-WITH project_status AS (
-SELECT
-project_id,
-project_name,
-project_budget,
-'upcoming' as status
-FROM [upcoming projects]
-UNION
-SELECT
-project_id,
-project_name,
-project_budget,
-'completed' as status
-FROM completed_projects)
-
-
---big table
-SELECT 
-e.employee_id,
-e.first_name,
-e.last_name,
-e.salary,
-e.job_title,
-d.Department_Name,
-d.Department_budget,
-d.Department_goals,
-pa.project_id,
-p.project_name,
-p.status,
-p.project_budget
-
-FROM employees e
-JOIN departments d 
-on e.department_id = d.Department_ID
-JOIN project_assignments pa
-on pa.employee_id = e.employee_id
-JOIN project_status p
-ON p.project_id = pa.project_id
-'''
 
 3. **Power BI Integration**:
    - Connected the cleaned data from SQL to Power BI for dynamic reporting.
